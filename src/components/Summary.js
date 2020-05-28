@@ -34,14 +34,12 @@ const Summary = ({ navigation, formData }) => {
               </p>
               <hr/>
               <p><strong>{item.event_registration_firstname} {item.event_registration_lastname}</strong></p>
-              <br/>
               <p><small><strong>Registration information</strong></small></p>
               <hr/>
               <p>
                 {item.event_registration_firstname} {item.event_registration_lastname} - Regular
                 <span className="price">$45.00</span>
               </p>
-              <br/>
               <p><small><strong>Additional Services</strong></small></p>
               <hr/>
               <ul>
