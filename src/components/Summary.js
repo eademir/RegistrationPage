@@ -3,7 +3,6 @@ const Summary = ({ navigation, formData }) => {
   let { workshop, firstName, lastName, email, Registration } = formData;
   const [total, setTotal] = useState(1);
   const { go } = navigation;
-  console.log(workshop.length);
   const registrationFunc = () => {
     go("registration");
     Registration.registration.push(
