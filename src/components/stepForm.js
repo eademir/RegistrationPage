@@ -16,7 +16,8 @@ const defaultData = {
   lastName: "",
   email: "",
   workshop: [],
-  Registration: { "registration": [] }
+  Registration: { "registration": [] },
+  total_price: 0
 };
 
 const StepForm = () => {

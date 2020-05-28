@@ -1,7 +1,8 @@
 import React from "react";
 const Summary = ({ navigation, formData }) => {
-  let { workshop, firstName, lastName, email, Registration } = formData;
+  let { workshop, firstName, lastName, email, Registration, total_price } = formData;
   const { go } = navigation;
+  const fd = formData;
   const registrationFunc = () => {
     Registration.registration.push(
       {
@@ -15,10 +16,10 @@ const Summary = ({ navigation, formData }) => {
         ]
       });
     console.log(Registration);
-    formData.workshop = [];
-    formData.firstName = "";
-    formData.lastName = "";
-    formData.email = "";
+    fd.workshop = [];
+    fd.firstName = "";
+    fd.lastName = "";
+    fd.email = "";
   };
   registrationFunc();
   return (
@@ -64,7 +65,7 @@ const Summary = ({ navigation, formData }) => {
       <button className="btn-light" onClick={() => {go("registration");}}>Add New Participant</button>
       <div className="total">
         <p>TOTAL</p>
-        <p><span>${workshop.length*50+45}.00</span></p>
+        <p><span>${(total_price*50)+(45*Registration.registration.length)}.00</span></p>
       </div>
     </div>
   );

@@ -12,7 +12,8 @@ const Workshop = ({ formData, navigation }) => {
         "event_workshop_id": Math.floor(Math.random()*10000),
         "event_workshop_price": "50.00"
       }
-    )
+    );
+    formData.total_price += 1;
   };
   return (
     <div className="form">
