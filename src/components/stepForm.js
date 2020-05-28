@@ -12,10 +12,11 @@ const steps = [
 ];
 
 const defaultData = {
-  firstName: "name",
-  lastName: "surname",
-  email: "email",
-  workshop: 0
+  firstName: "",
+  lastName: "",
+  email: "",
+  workshop: [],
+  Registration: { "registration": [] }
 };
 
 const StepForm = () => {

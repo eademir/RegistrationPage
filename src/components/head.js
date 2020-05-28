@@ -20,9 +20,9 @@ const Head = () => {
     }else{
       return(
         <div className="head col-md-12">
-          <h3>
+          <h2>
             {data.event_long_name}
-          </h3>
+          </h2>
           <p>
             {data.venue.event_venue_title}&emsp;{data.venue.event_venue_city}, {data.venue.event_venue_country}&emsp;{data.event_start_date} - {data.event_end_date}
           </p>

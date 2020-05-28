@@ -10,25 +10,25 @@ const Names = ({ setForm, formData, navigation }) => {
   return (
     <div className="row">
       <FormItem
-        label="First Name"
+        label="First Name*"
         name="firstName"
         value={firstName}
         onChange={setForm}
       />
       <FormItem
-        label="Last Name"
+        label="Last Name*"
         name="lastName"
         value={lastName}
         onChange={setForm}
       />
       <FormItem
-        label="E-Mail"
+        label="E-Mail*"
         name="email"
         value={email}
         onChange={setForm}
       />
       <div className="col-md-12">
-        <button onClick={next} className="float-right btn-success">Next</button>
+        {(firstName !== "" && lastName !== "" && email !== "") ? <button onClick={next} className="float-right btn-success">Next</button> : null}
       </div>
     </div>
   );
