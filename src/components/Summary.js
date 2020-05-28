@@ -3,7 +3,6 @@ const Summary = ({ navigation, formData }) => {
   let { workshop, firstName, lastName, email, Registration } = formData;
   const { go } = navigation;
   const registrationFunc = () => {
-    go("registration");
     Registration.registration.push(
       {
         "event_registration_firstname": firstName,
@@ -21,41 +20,48 @@ const Summary = ({ navigation, formData }) => {
     formData.lastName = "";
     formData.email = "";
   };
+  registrationFunc();
   return (
     <div>
       <h3>Registration Summary</h3>
-      <div className="sq">
-        <p>
-          Registration details for
-        </p>
-        <hr/>
-        <p><strong>{firstName} {lastName}</strong></p>
-        <br/>
-        <p><small><strong>Registration information</strong></small></p>
-        <hr/>
-        <p>
-          {firstName} {lastName} - Regular
-          <span className="price">$45.00</span>
-        </p>
-        <br/>
-        <p><small><strong>Additional Services</strong></small></p>
-        <hr/>
-        <ul>
-          {
-            workshop.map(
-              item => (
-                <li key={item.id}>
-                  Workshop
-                  <span className="float-right">
+      {
+        Registration.registration.map(
+          item => (
+            <div className="sq" key={item.event_registration_type_id}>
+              <p>
+                Registration details for
+              </p>
+              <hr/>
+              <p><strong>{item.event_registration_firstname} {item.event_registration_lastname}</strong></p>
+              <br/>
+              <p><small><strong>Registration information</strong></small></p>
+              <hr/>
+              <p>
+                {item.event_registration_firstname} {item.event_registration_lastname} - Regular
+                <span className="price">$45.00</span>
+              </p>
+              <br/>
+              <p><small><strong>Additional Services</strong></small></p>
+              <hr/>
+              <ul>
+                {
+                  item.workshop[0].map(
+                    item => (
+                      <li key={item.event_workshop_id}>
+                        Workshop
+                        <span className="float-right">
                     ${item.event_workshop_price}
                   </span>
-                </li>
-              )
-            )
-          }
-        </ul>
-      </div>
-      <button className="btn-light" onClick={registrationFunc}>Add New Participant</button>
+                      </li>
+                    )
+                  )
+                }
+              </ul>
+            </div>
+          )
+        )
+      }
+      <button className="btn-light" onClick={() => {go("registration");}}>Add New Participant</button>
       <div className="total">
         <p>TOTAL</p>
         <p><span>${workshop.length*50+45}.00</span></p>
