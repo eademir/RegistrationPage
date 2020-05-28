@@ -1,7 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 const Summary = ({ navigation, formData }) => {
   let { workshop, firstName, lastName, email, Registration } = formData;
-  const [total, setTotal] = useState(1);
   const { go } = navigation;
   const registrationFunc = () => {
     go("registration");
@@ -59,7 +58,7 @@ const Summary = ({ navigation, formData }) => {
       <button className="btn-light" onClick={registrationFunc}>Add New Participant</button>
       <div className="total">
         <p>TOTAL</p>
-        <p><span>${total*workshop.length*50+45}.00</span></p>
+        <p><span>${workshop.length*50+45}.00</span></p>
       </div>
     </div>
   );
